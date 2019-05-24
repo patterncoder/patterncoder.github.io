@@ -1,0 +1,51 @@
+{
+	"name": "GreatVines",
+	"background_color": "#fff",
+	"description": "GreatVines allows users to access Account data online and offline, manage Customers and Contacts, review Analytics dashboards, log Account Visits, upload and tag Photos, present Content files, search Accounts by Geolocation, complete Account Surveys, and process Sales Orders. Users can edit Account fields, Tasks, Events and Objectives as well.",
+	"display": "standalone",
+	"icons": [{
+		"sizes": "80x80",
+		"src": "../images/icon-80x80.png",
+		"type": "image/png"
+	}, {
+		"sizes": "144x144",
+		"src": "../images/icon-144x144.png",
+		"type": "image/png"
+	}, {
+		"sizes": "152x152",
+		"src": "../images/touch-icon-ipad.png",
+		"type": "image/png"
+	}, {
+		"sizes": "167x167",
+		"src": "../images/touch-icon-ipad-retina.png",
+		"type": "image/png"
+	}, {
+		"sizes": "180x180",
+		"src": "../images/touch-icon-iphone.png",
+		"type": "image/png"
+	}, {
+		"sizes": "192x192",
+		"src": "../images/icon-192x192.png",
+		"type": "image/png"
+	}, {
+		"sizes": "362x60",
+		"src": "../images/logo-new.png",
+		"type": "image/png"
+	}, {
+		"sizes": "512x512",
+		"src": "../images/icon-512x512.png",
+		"type": "image/png"
+	}],
+	"lang": "en-US",
+	"orientation": "any",
+	"related_applications": [{
+		"platform": "itunes",
+		"url": "https://itunes.apple.com/us/app/greatvines-beverage-sales-execution/id619865435"
+	}, {
+		"platform": "play",
+		"url": "https://play.google.com/store/apps/details?id=com.greatvines.mobile.enterprise"
+	}],
+	"short_name": "GreatVines",
+	"start_url": "app.html",
+	"theme_color": "aliceblue"
+}

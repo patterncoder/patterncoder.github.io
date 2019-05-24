@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Input</title>
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="default">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+		<link rel="stylesheet" href="../style/slds/styles/salesforce-lightning-design-system.min.css" />
+		<script crossorigin="use-credentials" type="module">
+			import { Input } from '../scripts/input.js'
+
+			window.onload = () => {
+				[
+					{
+						element: document.body.appendChild(document.createElement('div')),
+						handler: console.log,
+						label: 'Input'
+					},
+					{
+						element: document.body.appendChild(document.createElement('div')),
+						handler: console.log,
+						label: 'Date Input',
+						type: 'date'
+					},
+					{
+						element: document.body.appendChild(document.createElement('div')),
+						handler: console.log,
+						label: 'Read-Only Input',
+						readOnly: true,
+						value: 'read-only input value'
+					},
+					{
+						element: document.body.appendChild(document.createElement('div')),
+						handler: console.log,
+						label: 'Required Input',
+						required: true,
+						placeholder: 'required input'
+					},
+					{
+						element: document.body.appendChild(document.createElement('div')),
+						handler: console.log,
+						label: 'Search Input',
+						placeholder: 'search input',
+						type: 'search'
+					},
+				].forEach((input) => new Input(input));
+			}
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Checkbox</title>
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="default">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+		<link rel="stylesheet" href="../style/slds/styles/salesforce-lightning-design-system.min.css" />
+		<script crossorigin="use-credentials" type="module">
+			import { App } from '../scripts/app.js'
+			import { Checkbox } from '../scripts/checkbox.js'
+
+			window.onload = () => [
+				{
+					element: document.body.appendChild(document.createElement('div')),
+					handler: console.log,
+					label: 'Checkbox',
+					value: true
+				}
+			].forEach((options) => new Checkbox(options));
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

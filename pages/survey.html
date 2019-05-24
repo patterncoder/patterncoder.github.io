@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Survey</title>
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="default">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+		<link rel="apple-touch-icon" type="image/png" href="../images/icon-144x144.png" />
+		<link rel="icon" type="image/png" href="../images/icon-144x144.png" />
+		<link rel="stylesheet" href="../style/slds/styles/salesforce-lightning-design-system.min.css" />
+		<style type="text/css">
+			html, body {
+				height: 100%;
+				margin: 0;
+				min-width: 100%;
+				overflow: hidden;
+				padding: 0;
+				width: 1px;
+				-webkit-overflow-scrolling: touch;
+				-webkit-touch-callout: none;
+				-webkit-user-select: none;	/* Chrome all / Safari all */
+				-moz-user-select: none;		/* Firefox all */
+				-ms-user-select: none;		/* IE 10+ */
+				user-select: none;			/* Likely future */
+			}
+		</style>
+		<script crossorigin="use-credentials" type="module">
+			import { Survey } from '../scripts/survey.js'
+
+			window.addEventListener('load', () => new Survey({ element: document.body }));
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

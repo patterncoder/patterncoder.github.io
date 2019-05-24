@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>GreatVines</title>
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		<meta name="mobile-web-app-capable" content="yes" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+		<link rel="apple-touch-icon" href="../images/touch-icon-iphone.png" />
+		<link rel="apple-touch-icon" sizes="152x152" href="../images/touch-icon-ipad.png" />
+		<link rel="apple-touch-icon" sizes="180x180" href="../images/touch-icon-iphone-retina.png" />
+		<link rel="apple-touch-icon" sizes="167x167" href="../images/touch-icon-ipad-retina.png" />
+		<link href="../images/apple_splash_2048.png" sizes="2048x2732" rel="apple-touch-startup-image" />
+		<link href="../images/apple_splash_1668.png" sizes="1668x2224" rel="apple-touch-startup-image" />
+		<link href="../images/apple_splash_1536.png" sizes="1536x2048" rel="apple-touch-startup-image" />
+		<link href="../images/apple_splash_1125.png" sizes="1125x2436" rel="apple-touch-startup-image" />
+		<link href="../images/apple_splash_1242.png" sizes="1242x2208" rel="apple-touch-startup-image" />
+		<link href="../images/apple_splash_750.png" sizes="750x1334" rel="apple-touch-startup-image" />
+		<link href="../images/apple_splash_640.png" sizes="640x1136" rel="apple-touch-startup-image" />
+		<link rel="icon" type="image/png" href="../images/icon-144x144.png" />
+		<link rel="manifest" href="manifest.webmanifest" crossorigin="use-credentials" />
+		<link rel="stylesheet" href="../style/slds/styles/salesforce-lightning-design-system.min.css" />
+		<link rel="stylesheet" href="../style/shepherd/shepherd-theme-default.css" />
+		<link rel="stylesheet" href="../style/flatpickr/flatpickr.min.css">
+		<style type="text/css">
+			html, body {
+				height: 100%;
+				margin: 0;
+				overflow: hidden;
+				padding: 0;
+				width: 100%;
+				-webkit-overflow-scrolling: touch;
+				-webkit-touch-callout: none;
+				-webkit-user-select: none;	/* Chrome all / Safari all */
+				-moz-user-select: none;		/* Firefox all */
+				-ms-user-select: none;		/* IE 10+ */
+				user-select: none;			/* Likely future */
+			}
+
+			body > .splash {
+				background:url("../images/apple_splash_640.png");
+				background-repeat: no-repeat;
+				background-position: center;
+				background-size: contain;
+				height: 100%;
+			}
+		</style>
+		<script crossorigin="use-credentials" type="module">
+			import { App } from '../scripts/app.js'
+
+			window.addEventListener('load', () => App.init());
+		</script>
+		
+		
+	</head>
+	<body>
+		<div class="splash"></div>
+	</body>
+</html>

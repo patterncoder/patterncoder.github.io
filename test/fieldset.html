@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Fieldset</title>
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="default">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+		<link rel="stylesheet" href="../style/slds/styles/salesforce-lightning-design-system.min.css" />
+		<script crossorigin="use-credentials" type="module">
+			import { Api } from '../scripts/api.js'
+			import { Fieldset } from '../scripts/fieldset.js'
+
+			window.onload = () => {
+				let fakeFieldset = new Fieldset({
+					element: document.body.appendChild(document.createElement('div')),
+					fields: [
+						{
+							label: 'text field',
+							name: 'text',
+							required: true
+						},
+						{
+							label: 'Boolean Field',
+							name: 'boolean',
+							type: 'boolean'
+						},
+						{
+							label: 'Multi-picklist Field',
+							name: 'multipicklist',
+							picklistValues: [
+								{ label: 'Picklist 1', value: 'picklist1' },
+								{ label: 'Picklist 2', value: 'picklist2' },
+								{ label: 'Picklist 3', value: 'picklist3' }
+							],
+							type: 'multipicklist'
+						},
+						{
+							label: 'Lookup Field',
+							name: 'lookup',
+							lookupValues: [
+								{ Id: 'id1', Name: 'Lookup 1' },
+								{ Id: 'id2', Name: 'Lookup 2' },
+								{ Id: 'id3', Name: 'Lookup 3' }
+							],
+							type: 'lookup'
+						}
+					],
+					label: 'Fake Fieldset'
+				});
+
+				Api.describe('gvp__Account_Objective__c')
+					.then((description) => {
+						let realFieldset = new Fieldset({
+							element: document.body.appendChild(document.createElement('div')),
+							fields: description.fields.filter((field) => [
+								'gvp__Brand__c',
+								'gvp__Description__c',
+								'gvp__Status__c'
+							].indexOf(field.name) >= 0),
+							label: description.label
+						});
+					}, () => {
+						window.localStorage.clear();
+						window.location.reload();
+					});
+			}
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

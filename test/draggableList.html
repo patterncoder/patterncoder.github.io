@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Draggable List</title>
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="default">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+		<link rel="stylesheet" href="../style/slds/styles/salesforce-lightning-design-system.min.css" />
+		<script crossorigin="use-credentials" type="module">
+			import { App } from '../scripts/app.js'
+			import { DraggableList } from '../scripts/draggableList.js'
+
+			window.onload = () => {
+				[
+					{
+						droppable: false,
+						element: document.body.appendChild(document.createElement('div')),
+						inline: true,
+						items: [
+							{ backgroundColor: 'darkblue', color: 'white', label: 'Item 1' },
+							{ backgroundColor: 'orange', color: 'brown', label: 'Item 2' },
+							{ backgroundColor: 'darkgreen', color: 'aqua', label: 'Item 3' },
+							{ backgroundColor: 'purple', color: 'cyan', label: 'Item 4' }
+						]
+					},
+					{
+						dropIndicator: true,
+						element: document.body.appendChild(document.createElement('div'))
+					}
+				].forEach((list) => new DraggableList(list));
+			}
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

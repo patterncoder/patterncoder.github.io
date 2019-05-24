@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Auth</title>
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="default">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+		<link rel="stylesheet" href="../style/slds/styles/salesforce-lightning-design-system.min.css" />
+		<script crossorigin="use-credentials" type="module">
+			import { Auth } from '../scripts/auth.js'
+
+			window.onload = () => Promise.resolve(window.localStorage.clear())
+				.then(Auth.authenticate.bind(Auth))
+				.then((auth) => document.body.innerHTML = `
+					<pre>${JSON.stringify(auth)}</pre>
+				`);
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

@@ -1,1 +1,10 @@
-Hello World
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>GreatVines</title>
+		<script type="text/javascript">
+			let params = window.location.search ? '#' + window.location.search.substr(1) : '';
+			window.location.replace('pages/app.html' + params);
+		</script>
+	</head>
+</html>

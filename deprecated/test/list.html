@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>List</title>
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="default">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+		<link rel="stylesheet" href="../style/salesforce-lightning-design-system.min.css" />
+		<script>
+			window.onload = () => {
+				let list = document.querySelector('a-list');
+				list.addEventListener('action', console.log);
+				list.items = [
+					{
+						action: 'message',
+						icon: 'fav',
+						label: 'Section 1',
+						value: 'section1',
+						items: [
+							{
+								action: 'remove',
+								icon: 'check',
+								label: 'Item 1',
+								value: 'item1'
+							},
+							{
+								action: 'cut',
+								icon: 'unfav',
+								label: 'Item 2',
+								value: 'item2'
+							}
+						]
+					},
+					{
+						icon: 'refresh',
+						label: 'Section 2',
+						value: 'section2',
+						items: [
+							{
+								action: 'select',
+								icon: 'music',
+								input: 'text',
+								label: 'text input',
+								value: 'Item 3',
+								multiline: true
+							},
+							{
+								action: 'calendar',
+								icon: 'smile',
+								input: 'date',
+								label: 'date input',
+								value: '2017-11-16'
+							}
+						]
+					},
+					{
+						action: 'downArrow',
+						inline: true,
+						label: 'Section 3',
+						value: 'section3',
+						items: Array.from(Array(50).keys())
+							.map((i) => Object.assign({ label: `Item ${i+5}` }))
+					},
+					{
+						action: 'search',
+						inline: true,
+						label: 'Section 4',
+						value: '',
+						items: [
+							{
+								label: 'Image 1',
+								image: 'http://www.greatvines.com/wp-content/uploads/GV3_Avada_2X1.png'
+							},
+							{
+								label: 'Image 2',
+								image: 'http://greatvines2015.wpengine.com/wp-content/uploads/imac_gvlogo1-300x224.png'
+							},
+							{
+								label: 'Image 3',
+								image: 'http://www.greatvines.com/wp-content/uploads/DSC_1465.jpg'
+							}
+						]
+					},
+				]
+			};
+		</script>
+		<script src="../scripts/customElement.js"></script>
+		<script src="../scripts/list.js"></script>
+	</head>
+	<body>
+		<a-list action="edit" icon="back" label="List"></a-list>
+	</body>
+</html>

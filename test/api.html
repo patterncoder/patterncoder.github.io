@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Api</title>
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="default">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+		<link rel="stylesheet" href="../style/slds/styles/salesforce-lightning-design-system.min.css" />
+		<script crossorigin="use-credentials" type="module">
+			import { Api } from '../scripts/api.js'
+
+			window.onload = () => Promise.resolve(window.localStorage.clear())
+				.then(Api.user.bind(Api))
+				.then((user) => document.body.innerHTML = `Welcome ${user.Name}!`);
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

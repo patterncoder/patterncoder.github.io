@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Photo Browser</title>
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="default">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+		<style type="text/css">
+			html, body {
+				font-family: -apple-system-font;
+				height: 100%;
+				margin: 0;
+				padding: 0;
+				width: 100%;
+				-webkit-user-select: none;  /* Chrome all / Safari all */
+				-moz-user-select: none;     /* Firefox all */
+				-ms-user-select: none;      /* IE 10+ */
+				user-select: none;          /* Likely future */
+			}
+		</style>
+		<script>
+			window.onload = () => {
+				let photoBrowser = document.querySelector('gvp-photo-browser');
+				photoBrowser.addEventListener('getPhotos', (event) => {
+					console.log(event);
+					photoBrowser.photos = [
+						{
+							name: 'photo1',
+							label: 'Photo 1',
+							filter1: { label: 'Item 1', value: 'item1' },
+							filter2: { label: 'Item 2', value: 'item2' },
+							filter3: { label: 'Item 3', value: 'item3' },
+							imageUrl: 'http://www.greatvines.com/wp-content/uploads/GV3_Avada_2X1.png',
+							lastModified: Date.now()
+						},
+						{
+							name: 'photo2',
+							label: 'Photo 2',
+							filter1: { label: 'Item 2', value: 'item2' },
+							filter2: { label: 'Item 3', value: 'item3' },
+							filter3: { label: 'Item 1', value: 'item1' },
+							imageUrl: 'http://greatvines2015.wpengine.com/wp-content/uploads/imac_gvlogo1-300x224.png',
+							lastModified: Date.now()
+						},
+						{
+							name: 'photo3',
+							label: 'Photo 3',
+							filter1: { label: 'Item 3', value: 'item3' },
+							filter2: { label: 'Item 1', value: 'item1' },
+							filter3: { label: 'Item 2', value: 'item2' },
+							imageUrl: 'http://www.greatvines.com/wp-content/uploads/DSC_1465.jpg',
+							lastModified: Date.now()
+						},
+						{
+							name: 'photo4',
+							label: 'Photo 4',
+							filter1: { label: 'Item 1', value: 'item1' },
+							filter2: { label: 'Item 2', value: 'item2' },
+							filter3: { label: 'Item 3', value: 'item3' },
+							imageUrl: 'http://www.greatvines.com/wp-content/uploads/GV3_Avada_2X1.png',
+							lastModified: Date.now()
+						},
+						{
+							name: 'photo5',
+							label: 'Photo 4',
+							filter1: { label: 'Item 2', value: 'item2' },
+							filter2: { label: 'Item 3', value: 'item3' },
+							filter3: { label: 'Item 1', value: 'item1' },
+							imageUrl: 'http://greatvines2015.wpengine.com/wp-content/uploads/imac_gvlogo1-300x224.png',
+							lastModified: Date.now()
+						},
+						{
+							name: 'photo6',
+							label: 'Photo 6',
+							filter1: { label: 'Item 3', value: 'item3' },
+							filter2: { label: 'Item 1', value: 'item1' },
+							filter3: { label: 'Item 2', value: 'item2' },
+							imageUrl: 'http://www.greatvines.com/wp-content/uploads/DSC_1465.jpg',
+							lastModified: Date.now()
+						},
+						{
+							name: 'photo7',
+							label: 'Photo 7',
+							filter1: { label: 'Item 1', value: 'item1' },
+							filter2: { label: 'Item 2', value: 'item2' },
+							filter3: { label: 'Item 3', value: 'item3' },
+							imageUrl: 'http://www.greatvines.com/wp-content/uploads/GV3_Avada_2X1.png',
+							lastModified: Date.now()
+						},
+						{
+							name: 'photo8',
+							label: 'Photo 8',
+							filter1: { label: 'Item 2', value: 'item2' },
+							filter2: { label: 'Item 3', value: 'item3' },
+							filter3: { label: 'Item 1', value: 'item1' },
+							imageUrl: 'http://greatvines2015.wpengine.com/wp-content/uploads/imac_gvlogo1-300x224.png',
+							lastModified: Date.now()
+						},
+						{
+							name: 'photo9',
+							label: 'Photo 9',
+							filter1: { label: 'Item 3', value: 'item3' },
+							filter2: { label: 'Item 1', value: 'item1' },
+							filter3: { label: 'Item 2', value: 'item2' },
+							imageUrl: 'http://www.greatvines.com/wp-content/uploads/DSC_1465.jpg',
+							lastModified: Date.now()
+						},
+						{
+							name: 'photo10',
+							label: 'Photo 10',
+							filter1: { label: 'Item 1', value: 'item1' },
+							filter2: { label: 'Item 2', value: 'item2' },
+							filter3: { label: 'Item 3', value: 'item3' },
+							imageUrl: 'http://www.greatvines.com/wp-content/uploads/GV3_Avada_2X1.png',
+							lastModified: Date.now()
+						},
+						{
+							name: 'photo11',
+							label: 'Photo 11',
+							filter1: { label: 'Item 2', value: 'item2' },
+							filter2: { label: 'Item 3', value: 'item3' },
+							filter3: { label: 'Item 1', value: 'item1' },
+							imageUrl: 'http://greatvines2015.wpengine.com/wp-content/uploads/imac_gvlogo1-300x224.png',
+							lastModified: Date.now()
+						},
+						{
+							name: 'photo12',
+							label: 'Photo 12',
+							filter1: { label: 'Item 3', value: 'item3' },
+							filter2: { label: 'Item 1', value: 'item1' },
+							filter3: { label: 'Item 2', value: 'item2' },
+							imageUrl: 'http://www.greatvines.com/wp-content/uploads/DSC_1465.jpg',
+							lastModified: Date.now()
+						},
+						{
+							name: 'photo13',
+							label: 'Photo 13',
+							filter1: { label: 'Item 1', value: 'item1' },
+							filter2: { label: 'Item 2', value: 'item2' },
+							filter3: { label: 'Item 3', value: 'item3' },
+							imageUrl: 'http://www.greatvines.com/wp-content/uploads/GV3_Avada_2X1.png',
+							lastModified: Date.now()
+						},
+						{
+							name: 'photo14',
+							label: 'Photo 14',
+							filter1: { label: 'Item 2', value: 'item2' },
+							filter2: { label: 'Item 3', value: 'item3' },
+							filter3: { label: 'Item 1', value: 'item1' },
+							imageUrl: 'http://greatvines2015.wpengine.com/wp-content/uploads/imac_gvlogo1-300x224.png',
+							lastModified: Date.now()
+						},
+						{
+							name: 'photo15',
+							label: 'Photo 15',
+							filter1: { label: 'Item 3', value: 'item3' },
+							filter2: { label: 'Item 1', value: 'item1' },
+							filter3: { label: 'Item 2', value: 'item2' },
+							imageUrl: 'http://www.greatvines.com/wp-content/uploads/DSC_1465.jpg',
+							lastModified: Date.now()
+						},
+						{
+							name: 'photo16',
+							label: 'Photo 16',
+							filter1: { label: 'Item 1', value: 'item1' },
+							filter2: { label: 'Item 2', value: 'item2' },
+							filter3: { label: 'Item 3', value: 'item3' },
+							imageUrl: 'http://www.greatvines.com/wp-content/uploads/GV3_Avada_2X1.png',
+							lastModified: Date.now()
+						},
+						{
+							name: 'photo17',
+							label: 'Photo 17',
+							filter1: { label: 'Item 2', value: 'item2' },
+							filter2: { label: 'Item 3', value: 'item3' },
+							filter3: { label: 'Item 1', value: 'item1' },
+							imageUrl: 'http://greatvines2015.wpengine.com/wp-content/uploads/imac_gvlogo1-300x224.png',
+							lastModified: Date.now()
+						},
+						{
+							name: 'photo18',
+							label: 'Photo 18',
+							filter1: { label: 'Item 3', value: 'item3' },
+							filter2: { label: 'Item 1', value: 'item1' },
+							filter3: { label: 'Item 2', value: 'item2' },
+							imageUrl: 'http://www.greatvines.com/wp-content/uploads/DSC_1465.jpg',
+							lastModified: Date.now()
+						},
+						{
+							name: 'photo19',
+							label: 'Photo 19',
+							filter1: { label: 'Item 1', value: 'item1' },
+							filter2: { label: 'Item 2', value: 'item2' },
+							filter3: { label: 'Item 3', value: 'item3' },
+							imageUrl: 'http://www.greatvines.com/wp-content/uploads/GV3_Avada_2X1.png',
+							lastModified: Date.now()
+						},
+						{
+							name: 'photo20',
+							label: 'Photo 20',
+							filter1: { label: 'Item 2', value: 'item2' },
+							filter2: { label: 'Item 3', value: 'item3' },
+							filter3: { label: 'Item 1', value: 'item1' },
+							imageUrl: 'http://greatvines2015.wpengine.com/wp-content/uploads/imac_gvlogo1-300x224.png',
+							lastModified: Date.now()
+						},
+						{
+							name: 'photo21',
+							label: 'Photo 21',
+							filter1: { label: 'Item 3', value: 'item3' },
+							filter2: { label: 'Item 1', value: 'item1' },
+							filter3: { label: 'Item 2', value: 'item2' },
+							imageUrl: 'http://www.greatvines.com/wp-content/uploads/DSC_1465.jpg',
+							lastModified: Date.now()
+						},
+					];
+				});
+				photoBrowser.filters = [
+					{
+						label: 'Filter 1',
+						name: 'filter1',
+						items: [
+							{ label: 'Item 1', value: 'item1' },
+							{ label: 'Item 2', value: 'item2' },
+							{ label: 'Item 3', value: 'item3' },
+						]
+					},
+					{
+						label: 'Filter 2',
+						name: 'filter2',
+						items: [
+							{ label: 'Item 1', value: 'item1' },
+							{ label: 'Item 2', value: 'item2' },
+							{ label: 'Item 3', value: 'item3' },
+						]
+					},
+					{
+						label: 'Filter 3',
+						name: 'filter3',
+						items: [
+							{ label: 'Item 1', value: 'item1' },
+							{ label: 'Item 2', value: 'item2' },
+							{ label: 'Item 3', value: 'item3' },
+						]
+					},
+					{
+						label: 'Filter 4',
+						name: 'filter4',
+						items: [
+							{ label: 'Item 1', value: 'item1' },
+							{ label: 'Item 2', value: 'item2' },
+							{ label: 'Item 3', value: 'item3' },
+						]
+					},
+					{
+						label: 'Filter 5',
+						name: 'filter5',
+						items: [
+							{ label: 'Item 1', value: 'item1' },
+							{ label: 'Item 2', value: 'item2' },
+							{ label: 'Item 3', value: 'item3' },
+						]
+					},
+					{
+						label: 'Filter 3',
+						name: 'filter3',
+						items: [
+							{ label: 'Item 1', value: 'item1' },
+							{ label: 'Item 2', value: 'item2' },
+							{ label: 'Item 3', value: 'item3' },
+						]
+					},
+					{
+						label: 'Filter 6',
+						name: 'filter6',
+						items: [
+							{ label: 'Item 1', value: 'item1' },
+							{ label: 'Item 2', value: 'item2' },
+							{ label: 'Item 3', value: 'item3' },
+						]
+					},
+					{
+						label: 'Filter 7',
+						name: 'filter7',
+						items: [
+							{ label: 'Item 1', value: 'item1' },
+							{ label: 'Item 2', value: 'item2' },
+							{ label: 'Item 3', value: 'item3' },
+						]
+					},
+					{
+						label: 'Filter 8',
+						name: 'filter8',
+						items: [
+							{ label: 'Item 1', value: 'item1' },
+							{ label: 'Item 2', value: 'item2' },
+							{ label: 'Item 3', value: 'item3' },
+						]
+					},
+					{
+						label: 'Filter 9',
+						name: 'filter9',
+						items: [
+							{ label: 'Item 1', value: 'item1' },
+							{ label: 'Item 2', value: 'item2' },
+							{ label: 'Item 3', value: 'item3' },
+						]
+					},
+					{
+						label: 'Filter 10',
+						name: 'filter10',
+						items: [
+							{ label: 'Item 1', value: 'item1' },
+							{ label: 'Item 2', value: 'item2' },
+							{ label: 'Item 3', value: 'item3' },
+						]
+					},
+					{
+						label: 'Filter 11',
+						name: 'filter11',
+						items: [
+							{ label: 'Item 1', value: 'item1' },
+							{ label: 'Item 2', value: 'item2' },
+							{ label: 'Item 3', value: 'item3' },
+						]
+					},
+					{
+						label: 'Filter 12',
+						name: 'filter12',
+						items: [
+							{ label: 'Item 1', value: 'item1' },
+							{ label: 'Item 2', value: 'item2' },
+							{ label: 'Item 3', value: 'item3' },
+						]
+					},
+					{
+						label: 'Filter 13',
+						name: 'filter13',
+						items: [
+							{ label: 'Item 1', value: 'item1' },
+							{ label: 'Item 2', value: 'item2' },
+							{ label: 'Item 3', value: 'item3' },
+						]
+					},
+					{
+						label: 'Filter 14',
+						name: 'filter14',
+						items: [
+							{ label: 'Item 1', value: 'item1' },
+							{ label: 'Item 2', value: 'item2' },
+							{ label: 'Item 3', value: 'item3' },
+						]
+					},
+					{
+						label: 'Filter 15',
+						name: 'filter15',
+						items: [
+							{ label: 'Item 1', value: 'item1' },
+							{ label: 'Item 2', value: 'item2' },
+							{ label: 'Item 3', value: 'item3' },
+						]
+					},
+					{
+						label: 'Filter 16',
+						name: 'filter16',
+						items: [
+							{ label: 'Item 1', value: 'item1' },
+							{ label: 'Item 2', value: 'item2' },
+							{ label: 'Item 3', value: 'item3' },
+						]
+					},
+					{
+						label: 'Filter 17',
+						name: 'filter17',
+						items: [
+							{ label: 'Item 1', value: 'item1' },
+							{ label: 'Item 2', value: 'item2' },
+							{ label: 'Item 3', value: 'item3' },
+						]
+					},
+					{
+						label: 'Filter 18',
+						name: 'filter18',
+						items: [
+							{ label: 'Item 1', value: 'item1' },
+							{ label: 'Item 2', value: 'item2' },
+							{ label: 'Item 3', value: 'item3' },
+						]
+					},
+					{
+						label: 'Filter 19',
+						name: 'filter19',
+						items: [
+							{ label: 'Item 1', value: 'item1' },
+							{ label: 'Item 2', value: 'item2' },
+							{ label: 'Item 3', value: 'item3' },
+						]
+					},
+					{
+						label: 'Filter 20',
+						name: 'filter20',
+						items: [
+							{ label: 'Item 1', value: 'item1' },
+							{ label: 'Item 2', value: 'item2' },
+							{ label: 'Item 3', value: 'item3' },
+						]
+					},
+				];
+			};
+		</script>
+		<script src="../scripts/photoBrowser.js"></script>
+	</head>
+	<body>
+		<gvp-photo-browser max-height="768"></gvp-photo-browser>
+	</body>
+</html>

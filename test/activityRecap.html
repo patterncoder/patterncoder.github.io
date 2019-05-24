@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Activity Recap</title>
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="default">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+		<link rel="stylesheet" href="../style/slds/styles/salesforce-lightning-design-system.min.css" />
+		<style type="text/css">
+			html, body {
+				height: 100%;
+				margin: 0;
+				overflow: hidden;
+				padding: 0;
+				width: 100%;
+				-webkit-overflow-scrolling: touch;
+				-webkit-user-select: none;	/* Chrome all / Safari all */
+				-moz-user-select: none;		/* Firefox all */
+				-ms-user-select: none;		/* IE 10+ */
+				user-select: none;			/* Likely future */
+			}
+		</style>
+		<script crossorigin="use-credentials" type="module">
+			import { ActivityRecap } from '../scripts/activityRecap.js'
+
+			window.addEventListener('load', () => {
+				new ActivityRecap({
+					element: document.body,
+					types: [
+						{ name: 'gvp__Account_Call__c' },
+						{ name: 'gvp__Account_Objective__c' },
+						{
+							name: 'gvp__Survey__c',
+							childFields: {
+								gvp__Survey_Answer__c: [
+									'gvp__Question__r.gvp__Product_Name__c',
+									'gvp__Question__r.gvp__Question_Text__c',
+									'gvp__Answer_Formula__c'
+								]
+							}
+						},
+					]
+				});
+			});
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

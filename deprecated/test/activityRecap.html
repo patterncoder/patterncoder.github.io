@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Activity Recap</title>
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="default">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+		<link rel="stylesheet" href="../style/salesforce-lightning-design-system.min.css" />
+		<script>
+			window.onload = () => {
+				let now = new Date();
+				let year = now.getFullYear();
+				let month = now.getMonth() + 1;
+				let day = now.getDate();
+				let list = document.querySelector('a-list');
+				list.addEventListener('action', (event) => {
+					switch(event.detail.action) {
+						case 'select':
+							switch(event.detail.item.action) {
+								case 'downArrow':
+									if (event.detail.item.data) {
+										event.detail.item.items = event.detail.item.data;
+										event.detail.item.data = null;
+									} else {
+										event.detail.item.data = event.detail.item.items;
+										event.detail.item.items = null;
+									}
+									break;
+								case 'select':
+									let selectedItem = event.detail.item;
+									list.style.display = 'none';
+									picklist = PickList.create(event.detail.item.data);
+									picklist.addEventListener('action', (event) => {
+										switch(event.detail.action) {
+											case 'back':
+												selectedItem.label = picklist.renderedLabel;
+												selectedItem.data = Object.assign(selectedItem.data, { value: picklist.value });
+												selectedItem.value = picklist.value;
+												picklist.remove();
+												list.style.display = '';
+												break;
+										}
+									});
+									document.body.appendChild(picklist);
+									break;
+							}
+					}
+				});
+				list.items = [
+					{
+						action: 'downArrow',
+						label: 'Recent Searches',
+						items: [
+							{ label: 'Assigned Surveys' },
+							{ label: 'Completed Calls' },
+							{ label: 'Open Objectives' }
+						],
+						value: 'recentSearches'
+					},
+					{
+						action: 'downArrow',
+						label: 'Filters',
+						items: [
+							{
+								action: 'select',
+								data: {
+									choices: [
+										{ label: 'An Account', value: 'an_account' },
+										{ label: 'Another Account', value: 'another_account' },
+										{ label: 'My Account', value: 'my_account' },
+										{ label: 'Your Account', value: 'your_account' }
+									],
+									icon: 'back',
+									label: 'Account',
+									lookup: true,
+									multiple: true
+								},
+								label: 'Account'
+							},
+							{
+								action: 'downArrow',
+								label: 'Date',
+								items: [
+									{
+										action: 'calendar',
+										input: 'date',
+										label: 'Start Date',
+										value: `${year}-01-01`
+									},
+									{ label: 'to' },
+									{
+										action: 'calendar',
+										input: 'date',
+										label: 'End Date',
+										value: `${year}-${month}-${day}`
+									}
+								]
+							},
+							{
+								action: 'select',
+								data: {
+									choices: [
+										{ label: 'Not Started', value: 'not_started' },
+										{ label: 'Open', value: 'open' },
+										{ label: 'Won', value: 'won' },
+										{ label: 'Lost', value: 'lost' }
+									],
+									icon: 'back',
+									label: 'Status'
+								},
+								label: 'Status'
+							}
+						],
+						value: 'filters'
+					}
+				]
+			};
+		</script>
+		<script src="../scripts/customElement.js"></script>
+		<script src="../scripts/list.js"></script>
+		<script src="../scripts/picklist.js"></script>
+	</head>
+	<body>
+		<a-list label="Acitivity Recap"></a-list>
+	</body>
+</html>

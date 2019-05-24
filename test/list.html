@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>List</title>
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="default">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+		<link rel="stylesheet" href="../style/slds/styles/salesforce-lightning-design-system.min.css" />
+		<script crossorigin="use-credentials" type="module">
+			import { App } from '../scripts/app.js'
+			import { List } from '../scripts/list.js'
+
+			window.onload = () => {
+				[
+					{
+						collapsible: true,
+						label: 'List (multi-select, non-searchable, with values)',
+						element: document.body.appendChild(document.createElement('div')),
+						handler: console.log,
+						multiselect: true,
+						items: [
+							{ label: 'Item 1', value: 'item1' },
+							{ label: 'Item 2', value: 'item2' },
+							{ label: 'Item 3', value: 'item3' }
+						],
+						value: [
+							{ label: 'Item 1', value: 'item1' },
+							{ label: 'Item 3', value: 'item3' }
+						]
+					},
+					{
+						collapsed: true,
+						collapsible: true,
+						label: 'List (single-select, searchable)',
+						element: document.body.appendChild(document.createElement('div')),
+						handler: console.log,
+						searchable: true,
+						items: [
+							{ label: 'Item 1', value: 'item1' },
+							{ label: 'Item 2', value: 'item2' },
+							{ label: 'Item 3', value: 'item3' }
+						]
+					},
+					{
+						collapsed: true,
+						collapsible: true,
+						label: 'List (multi-select, searchable)',
+						element: document.body.appendChild(document.createElement('div')),
+						handler: console.log,
+						multiselect: true,
+						searchable: true,
+						items: [
+							{ label: 'Item 1', value: 'item1' },
+							{ label: 'Item 2', value: 'item2' },
+							{ label: 'Item 3', value: 'item3' }
+						]
+					},
+					{
+						label: 'List (no items)',
+						element: document.body.appendChild(document.createElement('div')),
+						handler: console.log
+					},
+					{
+						label: 'List (no items, searchable)',
+						element: document.body.appendChild(document.createElement('div')),
+						handler: console.log,
+						searchable: true
+					}
+				].forEach((list) => new List(list));
+			}
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

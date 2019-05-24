@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>RadioList</title>
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="default">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+		<link rel="stylesheet" href="../style/slds/styles/salesforce-lightning-design-system.min.css" />
+		<script crossorigin="use-credentials" type="module">
+			import { App } from '../scripts/app.js'
+			import { RadioList } from '../scripts/radioList.js'
+
+			window.onload = () => [
+				{
+					element: document.body.appendChild(document.createElement('div')),
+					handler: console.log,
+					items: [
+						{ label: 'Option 1', value: 'option1' },
+						{ label: 'Option 2', value: 'option2' },
+						{ label: 'Option 3', value: 'option3' },
+					],
+					label: 'Radio List'
+				}
+			].forEach((options) => new RadioList(options));
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

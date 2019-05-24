@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>GreatVines</title>
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+		<link rel="apple-touch-icon" type="image/png" href="../images/icon-144x144.png" />
+		<link rel="icon" type="image/png" href="../images/icon-144x144.png" />
+		<script crossorigin="use-credentials" type="module">
+			import { Auth } from '../scripts/auth.js'
+
+			window.addEventListener('load', () => Auth.authenticate()
+				.then(Auth.refresh.bind(Auth))
+				.then(auth => auth && auth.access_token && auth.instance_url &&
+					(window.location.href = `${auth.instance_url}/secur/frontdoor.jsp?sid=${encodeURIComponent(auth.access_token)}&retURL=${
+						encodeURIComponent(`${auth.instance_url}/apex/gvp__GreatVines_App#${
+							Object.keys(auth).map(
+								key => `${key}=${encodeURIComponent(auth[key])}`
+							).join('&')
+						}`)
+					}`)
+				)
+			);
+		</script>
+	</head>
+	<body></body>
+</html>
